@@ -1,7 +1,7 @@
 .PHONY: build build-static clean test docker docker-local docker-push
 
-BINARY_NAME=dns-prop-test
-IMAGE_NAME?=dns-prop-test
+BINARY_NAME=ripple
+IMAGE_NAME?=ripple
 REGISTRY?=
 TAG?=latest
 
