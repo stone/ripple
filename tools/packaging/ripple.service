@@ -1,0 +1,23 @@
+[Unit]
+Description=DNS Propagation Watcher
+Documentation=https://github.com/stone/ripple
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ripple
+WorkingDirectory=/var/lib/ripple
+ExecStart=/usr/bin/ripple -config /etc/ripple/config.yaml
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec = 120
+Restart = on-failure
+RestartSec = 2
+NoNewPrivileges=true
+LimitNOFILE=65536
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ripple
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,29 @@
+# DNS Propagation Checker Configuration
+# All fields are optional - defaults will be used if not specified
+
+# HTTP server listen address (starts server mode if set)
+listen: "127.0.0.1:8053"
+
+# Public DNS resolvers to check for propagation
+# Format: "ip:port"
+public_resolvers:
+  - "1.1.1.1:53" # Cloudflare
+  - "8.8.8.8:53" # Google
+  - "9.9.9.9:53" # Quad9
+  - "208.67.222.222:53" # OpenDNS
+  - "86.54.11.100:53" # DNS4EU
+  - "76.76.2.0:53" # ControlD
+
+# Root DNS servers for traversing the DNS tree
+# Format: "ip:port"
+root_servers:
+  - "198.41.0.4:53" # a.root-servers.net
+  - "199.9.14.201:53" # b.root-servers.net
+  - "192.33.4.12:53" # c.root-servers.net
+  - "199.7.91.13:53" # d.root-servers.net
+
+# Default values for CLI and HTTP API
+defaults:
+  timeout: "1m" # How long to run checks
+  retry: "5s" # Retry interval
+  record_type: "a" # Default record type (a, txt, cname, mx, aaaa)
