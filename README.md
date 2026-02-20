@@ -82,6 +82,23 @@ GET  /check/stream?...   (SSE, used by the web UI)
 GET  /health
 ```
 
+## Helm
+
+```sh
+# Install
+helm install ripple oci://ghcr.io/stone/charts/ripple --version 0.1.0
+
+# With ingress enabled
+helm install ripple oci://ghcr.io/stone/charts/ripple --version 0.1.0 \
+  --set ingress.enabled=true \
+  --set ingress.hosts[0].host=ripple.example.com
+
+# Upgrade
+helm upgrade ripple oci://ghcr.io/stone/charts/ripple --version 0.2.0
+```
+
+The chart deploys ripple in HTTP server mode (`-serve`). Override `config.*` values to adjust resolvers, timeouts, or the listen address.
+
 ## Record types
 
 `a`, `aaaa`, `txt`, `cname`, `mx`
