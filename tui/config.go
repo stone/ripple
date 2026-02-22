@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	dnspkg "dns-prop-test/dns"
+	dnspkg "ripple/dns"
 
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"

@@ -11,12 +11,12 @@ RUN go mod download
 COPY . .
 
 # Build static binary
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o dns-prop-test .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o ripple .
 
 # Runtime stage - distroless
 FROM gcr.io/distroless/static:nonroot
 
-COPY --from=builder /app/dns-prop-test /dns-prop-test
+COPY --from=builder /app/ripple /ripple
 COPY --from=builder /app/config.example.yaml /config.yaml
 
 # Default to server mode on port 8080
@@ -24,5 +24,5 @@ EXPOSE 8080
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/dns-prop-test"]
+ENTRYPOINT ["/ripple"]
 CMD ["-c", "/config.yaml", "-serve", ":8080"]

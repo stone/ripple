@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	dnspkg "dns-prop-test/dns"
+	dnspkg "ripple/dns"
 
 	"github.com/charmbracelet/bubbles/help"
 	tea "github.com/charmbracelet/bubbletea"
@@ -238,7 +238,7 @@ func (m Model) View() string {
 	helpBar := m.help.View(keyMapForView(m.currentView, m.checkActive, configEditing))
 
 	return lipgloss.JoinVertical(lipgloss.Left,
-		HeaderStyle.Render("dns-prop-test TUI"),
+		HeaderStyle.Render("ripple TUI"),
 		"",
 		content,
 		"",

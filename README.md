@@ -60,7 +60,7 @@ Docker:
 
 ```sh
 make docker-local
-docker run --rm -p 8080:8080 dns-prop-test -serve :8080
+docker run --rm -p 8080:8080 ripple -serve :8080
 ```
 
 ## Config
