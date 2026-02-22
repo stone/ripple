@@ -1,4 +1,4 @@
-module dns-prop-test
+module ripple
 
 go 1.24.2
 

@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	dnspkg "dns-prop-test/dns"
+	dnspkg "ripple/dns"
 
 	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"

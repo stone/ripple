@@ -29,7 +29,7 @@ test:
 docker:
 	docker buildx bake --file docker-bake.hcl \
 		--set "*.tags=$(IMAGE_NAME):$(TAG)" \
-		dns-prop-test
+		ripple
 
 # Build and load locally (single platform)
 docker-local:
@@ -39,4 +39,4 @@ docker-local:
 docker-push:
 	docker buildx bake --file docker-bake.hcl --push \
 		--set "*.tags=$(REGISTRY)/$(IMAGE_NAME):$(TAG)" \
-		dns-prop-test
+		ripple

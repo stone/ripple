@@ -14,8 +14,8 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	dnspkg "dns-prop-test/dns"
-	"dns-prop-test/tui"
+	dnspkg "ripple/dns"
+	"ripple/tui"
 )
 
 // Global config loaded at startup

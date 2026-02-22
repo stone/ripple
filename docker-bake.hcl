@@ -7,7 +7,7 @@ variable "REGISTRY" {
 }
 
 variable "IMAGE_NAME" {
-  default = "dns-prop-test"
+  default = "ripple"
 }
 
 function "full_image_name" {
@@ -16,10 +16,10 @@ function "full_image_name" {
 }
 
 group "default" {
-  targets = ["dns-prop-test"]
+  targets = ["ripple"]
 }
 
-target "dns-prop-test" {
+target "ripple" {
   dockerfile = "Dockerfile"
   context    = "."
   tags = [
@@ -30,7 +30,7 @@ target "dns-prop-test" {
 }
 
 target "local" {
-  inherits = ["dns-prop-test"]
+  inherits = ["ripple"]
   platforms = ["linux/amd64"]
   output   = ["type=docker"]
 }
