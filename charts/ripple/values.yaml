@@ -1,0 +1,41 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/stone/ripple
+  tag: v0.1.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: ripple.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources: {}
+
+config:
+  listen: ":8080"
+  public_resolvers:
+    - "1.1.1.1:53"
+    - "8.8.8.8:53"
+    - "9.9.9.9:53"
+    - "208.67.222.222:53"
+  root_servers:
+    - "198.41.0.4:53"
+    - "199.9.14.201:53"
+    - "192.33.4.12:53"
+    - "199.7.91.13:53"
+  defaults:
+    timeout: "1m"
+    retry: "5s"
+    record_type: "a"
