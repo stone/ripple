@@ -86,15 +86,15 @@ GET  /health
 
 ```sh
 # Install
-helm install ripple oci://ghcr.io/stone/charts/ripple --version 0.1.0
+helm install ripple oci://ghcr.io/stone/charts/ripple --version 0.1.2
 
 # With ingress enabled
-helm install ripple oci://ghcr.io/stone/charts/ripple --version 0.1.0 \
+helm install ripple oci://ghcr.io/stone/charts/ripple --version 0.1.2 \
   --set ingress.enabled=true \
   --set ingress.hosts[0].host=ripple.example.com
 
 # Upgrade
-helm upgrade ripple oci://ghcr.io/stone/charts/ripple --version 0.2.0
+helm upgrade ripple oci://ghcr.io/stone/charts/ripple --version 0.1.3
 ```
 
 The chart deploys ripple in HTTP server mode (`-serve`). Override `config.*` values to adjust resolvers, timeouts, or the listen address.
