@@ -21,6 +21,46 @@ ingress:
           pathType: Prefix
   tls: []
 
+gateway:
+  enabled: false
+  # Create a new Gateway resource or use an existing one
+  create: true
+  # Gateway class to use (e.g., istio, nginx, etc.)
+  gatewayClassName: ""
+  # Namespace where the gateway is located (if using existing gateway)
+  namespace: ""
+  annotations: {}
+  # Gateway listeners configuration (only used if create: true)
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+    # - name: https
+    #   protocol: HTTPS
+    #   port: 443
+    #   hostname: "*.example.com"
+    #   tls:
+    #     mode: Terminate
+    #     certificateRefs:
+    #       - name: example-com-cert
+  # HTTPRoute configuration
+  route:
+    annotations: {}
+    # Hostnames for the HTTPRoute
+    hostnames:
+      - ripple.local
+    # Parent gateway references (only used if create: false)
+    parentRefs: []
+    #   - name: existing-gateway
+    #     namespace: gateway-namespace
+    #     sectionName: http
+    # HTTPRoute rules
+    rules:
+      - matches:
+          - path:
+              type: PathPrefix
+              value: /
+
 resources: {}
 
 config:
